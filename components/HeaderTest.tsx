@@ -32,7 +32,7 @@ const HeaderTest = () => {
             <span className="cursor-pointer font-bold text-4xl text-black">Election BD</span>
           </Link>
         </div>
-        <div className="">
+        <div>
 //         {categories.map((category, index) => (
 //             <Link key={index} href={`/category/${category.node.slug}`}>
 //               <span className="md:float-right mt-2 align-middle text-black ml-4 font-semibold cursor-pointer">

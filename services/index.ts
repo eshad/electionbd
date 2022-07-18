@@ -69,6 +69,7 @@ export const getPostDetails = async (slug:any) => {
       node {
         title
         excerpt
+        slug
         featuredImage
         photo {
           url
@@ -114,4 +115,33 @@ export const getSimilarPosts = async ({categories}:any, {slug}:any) => {
   const result = await request(graphqlAPI, query, { slug, categories });
 
   return result.posts;
+};
+//Comments sections
+
+export const submitComment = async (obj:any) => {
+  const result = await fetch('/api/comments', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(obj),
+  });
+
+  return result.json();
+};
+
+export const getComments = async (slug:any) => {
+  const query = gql`
+    query GetComments($slug:String!) {
+      comments(where: {posts_some: {slug:$slug}}){
+        name
+        createdAt
+        comment
+      }
+    }
+  `;
+
+  const result = await request(graphqlAPI, query, { slug });
+
+  return result.comments;
 };

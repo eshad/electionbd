@@ -41,7 +41,7 @@ const PostDetailsTest = ({post}:any) => {
     }
   };
 
-  console.log(post)
+  //console.log(post)
   return (
    <>
    <div className="bg-white shadow-lg rounded-lg lg:p-8 pb-12 mb-8">

@@ -12,6 +12,7 @@ export async function getStaticProps({ params }:any) {
     return {
       props: {
         post: data,
+        slug: params.slug,
       },
     };
   }
@@ -52,9 +53,10 @@ export async function getStaticProps({ params }:any) {
     };
   }*/
 
-const PostDetails = ({post}:any) => {
+const PostDetails = ({post, slug}:any) => {
 
-    //console.log({post})
+    // console.log({slug})
+    // console.log(post[0].node.slug)
     return (
     <>
         {/* {post.slug} */}
@@ -64,8 +66,8 @@ const PostDetails = ({post}:any) => {
             <PostDetailsTest post={post} />
             <AuthorTest author={post?.author} />
             {/* <AdjacentPosts slug={post.slug} createdAt={post.createdAt} /> */}
-            <CommentsFormTest slug={post?.slug} />
-            <CommentsTest slug={post?.slug} />
+            <CommentsFormTest slug={slug} />
+            <CommentsTest slug={slug} />
           </div>
           <div className="col-span-1 lg:col-span-4">
             <div className="relative lg:sticky top-8">
